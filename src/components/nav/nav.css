@@ -84,18 +84,18 @@ nav .menu .link-menu:hover {
     gap: 1.2rem;
 }
 
-.nav-btn>a {
+.nav-btn>Link {
     padding: 0.3rem 0.6rem;
     border-radius: 5em;
     transition: .3s;
 }
 
-.login {
+.login-btn {
     background-color: var(--vibrant);
     color: var(--primary);
 }
 
-.login:hover {
+.login-btn:hover {
     color: #fff;
     box-shadow: #ffc519be 0px 9px 30px 0px;
 }

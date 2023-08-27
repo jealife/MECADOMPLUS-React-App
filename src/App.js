@@ -3,6 +3,9 @@ import './App.css';
 import {  Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import Admin from './pages/admin/Admin';
+import SignUp from './pages/login/SignUp';
+import SignIn from './pages/login/SignIn';
+import UserProfile from './pages/userProfile/UserProfile';
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
         <Route index element={<Home />} />
       </Route>
       <Route path='/admin' element={<Admin />} />
+      <Route path='/connexion' element={<SignIn />} />
+      <Route path='/inscription' element={<SignUp />} />
+      <Route path='/profile' element={<UserProfile />} />
     </Routes>
   );
 }

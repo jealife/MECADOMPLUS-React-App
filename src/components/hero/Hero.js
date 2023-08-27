@@ -8,7 +8,7 @@ export default function Hero() {
     return (
         <div className='flex flex-col items-center min-h-screen'>
             <div className="hero-section">
-                <div className="left-section">
+                <div className="left-section-hero">
                     <div className="left-section-container">
                         <div className="top">
                             <span> ne cherchez plus loin </span>
@@ -44,7 +44,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="right-section"></div>
+                <div className="right-section-hero"></div>
 
                 <div className="services-block">
                     <h2>
