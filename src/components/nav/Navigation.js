@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./nav.css";
-import { NavLink, Router } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from '../../assets/images/Logotype_Mecadom.png'
 import 'boxicons'
 
