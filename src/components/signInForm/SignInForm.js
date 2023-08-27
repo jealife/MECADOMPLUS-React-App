@@ -1,23 +1,60 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+async function loginUser(credentials) {
+  return fetch('https://mecadom.electroniqueclasse.com/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json())
+ }
 
+ 
+ 
+ 
 function SignInForm({toggle}) {
+
+  const [useremail, setUserEmail] = useState();
+  const [password, setPassword] = useState();
+
+    const handleSubmit = async e => {
+    e.preventDefault();
+    const response = await loginUser({
+      useremail,
+      password
+    });
+    if ('accessToken' in response) {
+      return("Success", response.message, "success", {
+        buttons: false,
+        timer: 2000,
+      })
+      .then((value) => {
+        localStorage.setItem('accessToken', response['accessToken']);
+        localStorage.setItem('user', JSON.stringify(response['user']));
+        window.location.href = "/profile";
+      });
+    } else {
+        return("Failed", response.message, "error");
+    }
+  }
     return (
-        <form className='login-form' action="">
+        <form className='login-form' noValidate onSubmit={handleSubmit}>
             <h1 className='text-2xl font-bold'>Connexion</h1>
 
             <div class="login-sign-up">
                 <div class="login" id="login">
-                    <input type="email" name="email" autofocus="" autocapitalize="none" autocomplete="email"
-                        placeholder="Email" required />
+                    <input type="email" name="email" 
+                        placeholder="Email" required onChange={e => setUserEmail(e.target.value)} />
 
                     <div class="password-field">
 
-                        <input type="password" id="password" placeholder="Mot de passe" name="password"
-                            autocomplete="current-password" required />
+                        <input type="password"  placeholder="Mot de passe" name="password"
+                             required onChange={e => setPassword(e.target.value)} />
                         <div class="show-password">
                             <input type="checkbox" onclick="showPassword()" />
-                            <span id="tooglePasswordindicator">Voir</span>
+                            <span>Voir</span>
                         </div>
                     </div>
                 </div>
