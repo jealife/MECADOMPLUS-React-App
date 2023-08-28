@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import Tabs from "./profileComponents/Tabs";
 
 const Profile = () => {
   return (
     <main>
 
-      <div className="overflow-hidden rounded-sm border border-stroke rounded-t-3xl  shadow-default dark:border-strokedark dark:bg-boxdark max-w-5xl my-24 mx-auto">
+      <div className="overflow-hidden rounded-sm border border-stroke rounded-t-3xl md:rounded-none  shadow-default dark:border-strokedark dark:bg-boxdark max-w-5xl my-24 md:my-14 mx-auto">
         <div className="relative z-20 h-35 md:h-65">
           <img
             src="https://unsplash.it/2500"
             alt="profile cover"
-            className="w-full rounded-tl-sm rounded-t-3xl object-cover object-center h-96"
+            className="w-full rounded-tl-sm rounded-t-3xl md:rounded-none object-cover object-center h-72 md:h-52"
           />
           <div className="absolute bottom-1 right-1 z-10 xsm:bottom-4 xsm:right-4">
             <label
@@ -45,12 +46,12 @@ const Profile = () => {
           </div>
         </div>
         <div className="px-4 pb-6 text-center lg:pb-8 xl:pb-11.5">
-          <div className=" z-30 mx-auto mt-22 h-0 max-w-30 rounded-full bg-white/20 p-1 backdrop-blur relative mb-8   sm:p-3">
+          <div className=" z-30 mx-auto mt-22 h-0  rounded-full  p-1 backdrop-blur relative mb-8   sm:p-3">
             <div className="relative drop-shadow-2">
-              <img className="rounded-full" src=" https://i.pravatar.cc/90?Image=1000" alt="profile" />
+              <img className="rounded-full -mt-11 " src=" https://i.pravatar.cc/90?Image=1000" alt="profile" />
               <label
                 htmlFor="profile"
-                className="absolute bottom-0  right-0 flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full bg-primary text-white hover:bg-opacity-90 sm:bottom-2 sm:right-2"
+                className="    flex h-8.5 w-8.5 cursor-pointer items-center  rounded-full bg-primary text-blue-800 hover:bg-opacity-90 "
               >
                 <svg
                   className="fill-current"
@@ -84,45 +85,17 @@ const Profile = () => {
           </div>
           <div className="mt-4">
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-              Danish Heilium
+              User Name
             </h3>
-            <p className="font-medium">Ui/Ux Designer</p>
-            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
-              <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
-                <span className="font-semibold text-black dark:text-white">
-                  259
-                </span>
-                <span className="text-sm">Posts</span>
-              </div>
-              <div className="flex flex-col items-center justify-center mt-9 gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
-                <span className="font-semibold text-black dark:text-white">
-                  129K
-                </span>
-                <span className="text-sm">Followers</span>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-1 px-4 xsm:flex-row">
-                <span className="font-semibold text-black dark:text-white">
-                  2K
-                </span>
-                <span className="text-sm">Following</span>
-              </div>
+            <p className="font-medium text-slate-400">Ui/Ux Designer</p>
+            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+              <Tabs/>
             </div>
 
-            <div className="mx-auto max-w-180 mt-5">
-              <h4 className="font-semibold text-black dark:text-white">
-                About Me
-              </h4>
-              <p className="mt-4.5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque posuere fermentum urna, eu condimentum mauris
-                tempus ut. Donec fermentum blandit aliquet. Etiam dictum dapibus
-                ultricies. Sed vel aliquet libero. Nunc a augue fermentum,
-                pharetra ligula sed, aliquam lacus.
-              </p>
-            </div>
+            
 
             <div className="mt-14">
-              <h4 className="mb-3.5 font-medium text-black dark:text-white">
+              <h4 className="mb-3.5 font-medium text-gray-600 ">
                 Follow me on
               </h4>
               <div className="flex items-center justify-center gap-3.5">

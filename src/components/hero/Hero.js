@@ -26,8 +26,8 @@ export default function Hero() {
                             <div className="search-bar-container">
                                 <form className="search-home-form" action="" method="post">
                                     <input id="homeSearch" type="search" placeholder="Search your service..." required />
-                                        <button type="submit">
-                                            <i className='bx bx-search-alt-2'></i>
+                                        <button type="submit" className=' relative text-center'>
+                                        <box-icon  name='search-alt' color='#ffffff' ></box-icon>
                                         </button>
                                 </form>
                             </div>
