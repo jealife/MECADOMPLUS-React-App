@@ -88,7 +88,10 @@ const Profile = () => {
               User Name
             </h3>
             <p className="font-medium text-slate-400">Ui/Ux Designer</p>
-            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+
+
+
+            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 px-5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
               <Tabs/>
             </div>
 
