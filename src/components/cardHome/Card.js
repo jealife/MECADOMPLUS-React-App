@@ -25,7 +25,7 @@ export default function Card({ num }) {
                         <div className="profile-pic">
                             <img src={src2} alt="user__image" className="user__image rounded-full " />
                         </div>
-                        <div className="name">
+                        <div className="flex flex-col">
                             <h3 className="text-slate-950 font-bold">Jhon Doe</h3>
                             <span className="text-slate-600 text-sm"> Mécanicienne </span>
                         </div>
