@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ServiceStack() {
     return (
         <div className="services-container">
-            <a href="#">Vidange</a>
-            <a href="#">Lavage</a>
-            <a href="#">Dépannage</a>
-            <a href="#">Consultation globale</a>
-            <a href="#">Climatisation</a>
-            <a href="#">Batterie</a>
+            <Link href="#">Vidange</Link>
+            <Link href="#">Lavage</Link>
+            <Link href="#">Dépannage</Link>
+            <Link href="#">Consultation globale</Link>
+            <Link href="#">Climatisation</Link>
+            <Link href="#">Batterie</Link>
         </div>
     );
 }
