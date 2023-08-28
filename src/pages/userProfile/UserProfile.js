@@ -84,7 +84,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="mt-4">
-            <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
+            <h3 className="mb-1.5 text-2xl font-semibold text-black ">
               User Name
             </h3>
             <p className="font-medium text-slate-400">Ui/Ux Designer</p>
