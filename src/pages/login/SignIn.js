@@ -11,13 +11,13 @@ export default function SignIn() {
     }
     return (
         <main className='flex lg:flex-row  md:flex-col sm:flex-col'>
-            <div class="left-section">
+            <div className="left-section">
                 {
                     formLogin ? <SignInForm toggle={toggleLoginForm} /> : <SignUpForm toggle={toggleLoginForm} />
                 }
             </div>
 
-            <div class="right-section"></div>
+            <div className="right-section"></div>
 
         </main>
     )

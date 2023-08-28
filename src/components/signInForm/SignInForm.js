@@ -14,10 +14,10 @@ export default function SignInForm({ toggle }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('hhttps://mecadom.electroniqueclasse.com/api/login', { email, password });
+      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/login', { email, password });
       localStorage.setItem('authData', JSON.stringify({ email, password }));
       toast('Connexion réussie !');
-      window.location.replace('/')
+      // window.location.replace('/profile')
     } catch (error) {
       if (error.response) {
         toast(`Erreur lors de la connexion : ${error.response.data}`);
