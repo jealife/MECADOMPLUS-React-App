@@ -44,7 +44,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="right-section-hero"></div>
+                <div className="right-section-hero rounded-s-3xl"></div>
 
                 <div className="services-block">
                     <h2>

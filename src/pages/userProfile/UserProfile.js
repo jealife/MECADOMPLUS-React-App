@@ -91,7 +91,7 @@ const Profile = () => {
 
 
 
-            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 px-2 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 px-2 shadow-1 dark:border-strokedark ">
               <Tabs/>
             </div>
 

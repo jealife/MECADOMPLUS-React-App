@@ -6,9 +6,9 @@ export default function Card({ num }) {
     let src2 = "https://i.pravatar.cc/40?Image=" + num;
     return (
         <div>
-            <div className="card-container bg-white  pt-0 pb-3 rounded-2xl m-2 flex flex-col items-center gap-3 shadow-xl lg:w-80 md:w-full ease-in duration-300 hover:translate-y-2" >
+            <div className="card-container bg-white  pt-0 pb-3 rounded-2xl m-2 flex flex-col items-center gap-3 shadow-xl w-80 md:w-full ease-in duration-300 hover:translate-y-2" >
                 <div className="card-cover">
-                    <img src={src} alt="card__image" className="card__image  rounded-t-xl w-96 object-cover h-40" width="600" />
+                    <img src={src} alt="card__image" className="card__image  rounded-t-xl w-96 object-cover h-52" width="600" />
                 </div>
                 <div className="title-service w-full text-center flex text-xl px-4">
                     <h2 className="text-slate-950 font-extrabold">Dépanneur</h2>

@@ -48,7 +48,7 @@ const Tabs = () => {
                 href="#link2"
                 role="tablist"
               >
-                Paramètres
+                Favoris
               </a>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -56,7 +56,7 @@ const Tabs = () => {
                 className={
                   "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded-full block leading-normal " +
                   (openTab === 3
-                    ? "text-white bbg-blue-700"
+                    ? "text-white bg-blue-700"
                     : "text-cyan-700 bg-white")
                 }
                 onClick={e => {
@@ -67,7 +67,7 @@ const Tabs = () => {
                 href="#link3"
                 role="tablist"
               >
-                Options
+                Compte
               </a>
             </li>
           </ul>
