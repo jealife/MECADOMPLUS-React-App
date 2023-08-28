@@ -1,4 +1,5 @@
 import React from "react";
+import ProfilTab from "./tabsItems/ProfilTab";
 
 const Tabs = () => {
   const [openTab, setOpenTab] = React.useState(1);
@@ -74,14 +75,7 @@ const Tabs = () => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <p>
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br /> Dramatically visualize customer directed convergence
-                    without revolutionary ROI.
-                  </p>
+                  <ProfilTab />
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p>

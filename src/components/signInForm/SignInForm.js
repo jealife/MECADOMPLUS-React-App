@@ -32,7 +32,7 @@ export default function SignInForm({ toggle }) {
     <form className='login-form' noValidate onSubmit={handleSubmit}>
       <h1 className='text-2xl font-bold'>Connexion</h1>
       <div className="login-sign-up">
-        <div className="login" id="login">
+        <div className="login" >
 
           <input type="email" name="email"
             placeholder="Email" required
