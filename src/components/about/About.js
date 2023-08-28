@@ -15,7 +15,7 @@ export default function About(){
                     </p>
                 </div>
                 <div className="rigth">
-                    <img src="https://www.planeteautomobile.com/wp-content/uploads/2022/03/recharger-une-batterie-de-voiture-thermique.jpg" alt="" />
+                    <img className=' object-cover' src="https://www.planeteautomobile.com/wp-content/uploads/2022/03/recharger-une-batterie-de-voiture-thermique.jpg" alt="" />
                 </div>
             </div>
 
@@ -27,7 +27,7 @@ export default function About(){
                      Amet est placerat in egestas erat. Commodo</p>
                 </div>
                 <div className="rigth">
-                    <img src="https://www.mazout-lurquin.be/images/lurquin_carwash_01.jpg" alt="" />
+                    <img className='object-fit object-cover' src="https://www.mazout-lurquin.be/images/lurquin_carwash_01.jpg" alt="" />
                 </div>
             </div>
 
