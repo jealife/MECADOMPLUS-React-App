@@ -23,7 +23,8 @@ export default class Navigation extends Component {
                     <div className={this.state.clicked ? "menu menu_mobile ": "menu  "}>
                         <div className="links-menu items-center justify-center">
                             <NavLink to="/" className="NavLink-menu">Accueil</NavLink>
-                            <NavLink to="admin" className="NavLink-menu">Admin</NavLink>
+                            <NavLink to="/admin" className="NavLink-menu">Admin</NavLink>
+                            <NavLink to="/profile" className="NavLink-menu">Profile</NavLink>
                         </div>
 
                         <div className="nav-btn">
