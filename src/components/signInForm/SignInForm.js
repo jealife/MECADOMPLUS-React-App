@@ -1,74 +1,61 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
-async function loginUser(credentials) {
-  return fetch('https://mecadom.electroniqueclasse.com/api/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json())
-}
 
-function SignInForm({ toggle }) {
+export default function SignInForm({ toggle }) {
 
-  const [useremail, setUserEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const response = await loginUser({
-      useremail,
-      password
-    });
-    if ('accessToken' in response) {
-      // Remplacez cette fonction par la fonction appropriée pour afficher un message à l'utilisateur
-      displayMessage("Success", response.message, "success", {
-        buttons: false,
-        timer: 2000,
-      })
-        .then((value) => {
-          localStorage.setItem('accessToken', response['accessToken']);
-          localStorage.setItem('user', JSON.stringify(response['user']));
-          window.location.href = "/profile";
-        });
-    } else {
-      // Remplacez cette fonction par la fonction appropriée pour afficher un message à l'utilisateur
-      displayMessage("Failed", response.message, "error");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('hhttps://mecadom.electroniqueclasse.com/api/login', { email, password });
+      localStorage.setItem('authData', JSON.stringify({ email, password }));
+      toast('Connexion réussie !');
+      window.location.replace('/')
+    } catch (error) {
+      if (error.response) {
+        toast(`Erreur lors de la connexion : ${error.response.data}`);
+      } else {
+        toast(`Erreur lors de la connexion : ${error.message}`);
+      }
     }
-  }
-
+  };
   return (
     <form className='login-form' noValidate onSubmit={handleSubmit}>
       <h1 className='text-2xl font-bold'>Connexion</h1>
-
       <div className="login-sign-up">
         <div className="login" id="login">
+
           <input type="email" name="email"
-            placeholder="Email" required onChange={e => setUserEmail(e.target.value)} />
+            placeholder="Email" required
+            value={email} onChange={(event) => setEmail(event.target.value)} />
 
           <div className="password-field">
 
-            <input type="password" placeholder="Mot de passe" name="password"
-              required onChange={e => setPassword(e.target.value)} />
+            <input type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Mot de passe" name="password"
+              required />
+
             <div className="show-password">
-              <input type="checkbox" onClick={showPassword} />
-              <span>Voir</span>
+              <input type="checkbox" onChange={() => setShowPassword(!showPassword)} />
+              <span className='cursor-pointer ' >Voir</span>
             </div>
           </div>
         </div>
-
-
         <div className="link-connexion" id="linkLogin">
-          <Link to="#">Mot de passe oublié ?</Link>
+          <Link to="/forgot-password">Mot de passe oublié ?</Link>
           <span onClick={toggle}>S'enregistrer</span>
         </div>
       </div>
-
       <input type="submit" value="Se connecter" id="loginBtn" />
     </form>
   )
 }
-export default SignInForm;
