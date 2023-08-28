@@ -8,7 +8,7 @@ export default function About(){
             <div className="container">
                 <div className="left">
                     <h2>Title 1</h2>
-                    <p>
+                    <p className='text-white'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                      In dictum non consectetur a erat. Vel turpis nunc eget lorem. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. 
                      Amet est placerat in egestas erat. Commodo
