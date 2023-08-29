@@ -41,7 +41,7 @@ const TableOne = ({ data }) => {
           </div>
 
           <div className="flex items-center  p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{user.first_name}</p>
+            <p className="text-black ">{user.first_name}</p>
           </div>
 
           <div className="flex items-center  p-2.5 xl:p-5">
@@ -49,7 +49,7 @@ const TableOne = ({ data }) => {
           </div>
 
           <div className="sm:hidden items-center  xl:p-2.5 flex p-5">
-            <p className="text-black dark:text-white">{user.email} </p>
+            <p className="text-black ">{user.email} </p>
           </div>
         </div>
         ))}
