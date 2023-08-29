@@ -23,7 +23,7 @@ export default function Admin() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <div className="list flex flex-col justify-center gap-3">
-                <h2 className="my-5 text-3xl font-medium text-center">{data.length} Utilistateurs ainscrits </h2>
+                <h2 className="my-5 text-3xl font-medium text-center">{data.length} Utilistateurs inscrits </h2>
                 {data.map( (user) => (
 
                     <User key={user.id}
