@@ -27,10 +27,10 @@
 .right-section-hero {
   background-size: cover;
   background-color: #2330ab;
-  background-position-x: 600px;
+  background-position-x: left;
   background-repeat: no-repeat;
   background-image: url("../../assets/images/Well\,\ let\'s\ check\ what\'s\ wrong\ with\ this\ car@3x.jpeg");
-  background-attachment: fixed;
+
 }
 
 .left-section-hero {
