@@ -10,7 +10,6 @@ export default function SignInForm({ toggle }) {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

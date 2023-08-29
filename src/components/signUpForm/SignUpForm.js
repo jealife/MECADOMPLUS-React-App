@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function SignUpForm({toggle}) {
+function SignUpForm({ toggle }) {
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <form className='login-form' action="">
             <h1 className='text-2xl font-bold' >S&apos;enregister</h1>
@@ -31,16 +34,15 @@ function SignUpForm({toggle}) {
                         required
                     />
                     <div className="password-field">
-                        <input
-                            type="password"
-                            id="PasswordSignUp"
-                            placeholder="Mot de passe"
-                            name="password"
-                            required
-                        />
+                        <input type={showPassword ? 'text' : 'password'}
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                            placeholder="Mot de passe" name="password"
+                            required />
+
                         <div className="show-password">
-                            <input type="checkbox" />
-                            <span id="tooglePasswordindicatorSignUp">Voir</span>
+                            <input type="checkbox" onChange={() => setShowPassword(!showPassword)} />
+                            <span className='cursor-pointer ' >Voir</span>
                         </div>
                     </div>
                 </div>
