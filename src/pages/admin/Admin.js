@@ -1,7 +1,6 @@
 import { useEffect,useState } from "react";
 import axios from 'axios';
 import User from "../../components/listUsers/User";
-import CardList from "../../components/listUsers/CardList";
 
 export default function Admin() {
   const [data, setData] = useState([]);
@@ -36,8 +35,7 @@ export default function Admin() {
                 ))}
 
             </div>
-
-            <CardList/>
+            
         </div>
     );
 }
