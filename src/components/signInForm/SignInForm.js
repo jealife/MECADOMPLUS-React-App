@@ -25,7 +25,7 @@ export default function SignInForm({ toggle }) {
       } else {
         toast(`Erreur lors de la connexion : ${error.message}`);
       }
-    }
+    } 
   };
   return (
     <form className='login-form' noValidate onSubmit={handleSubmit}>
