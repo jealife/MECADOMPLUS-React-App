@@ -5,6 +5,12 @@ import axios from 'axios';
 
 
 export default function SignInForm({ toggle }) {
+  // const [name, setName] = useState('');
+
+  // useEffect(() => {
+  //   const storedName = localStorage.getItem('username');
+  //   setName(storedName);
+  // }, []);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
