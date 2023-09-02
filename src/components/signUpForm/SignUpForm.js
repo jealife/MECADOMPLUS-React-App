@@ -5,15 +5,16 @@ import axios from 'axios';
 
 function SignUpForm({ toggle }) {
     const [email, setEmail] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [firstName, setFirstName] = useState('');
+    const [last_name, setLastName] = useState('');
+    const [first_name, setFirstName] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/register',localStorage.setItem('authData', JSON.stringify({lastName,firstName, email, password })))
+
+      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/register', { last_name,first_name, email, password });
       const successMessage = response.data.message; 
       toast('Connexion réussie !');
       console.log(successMessage); 
@@ -37,13 +38,13 @@ function SignUpForm({ toggle }) {
                         <input
                            type="text" name="lastName"
                            placeholder="Nom" required
-                           value={lastName} onChange={(event) => setLastName(event.target.value)}
+                           value={last_name} onChange={(event) => setLastName(event.target.value)}
                             
                         />
                         <input
                            type="text" name="firstName"
                            placeholder="Prénom" required
-                           value={firstName} onChange={(event) => setFirstName(event.target.value)}
+                           value={first_name} onChange={(event) => setFirstName(event.target.value)}
                         />
                     </div>
                     <input

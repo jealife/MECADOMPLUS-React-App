@@ -13,8 +13,8 @@ export default function SignInForm({ toggle }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/login', { email, setPassword });
-      localStorage.setItem('authData', JSON.stringify({ email, password }));
+      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/login', { email, password });
+      // localStorage.setItem('authData', JSON.stringify({ email, password }));
       const successMessage = response.data.message; 
       toast('Connexion réussie !');
       console.log(successMessage); 
