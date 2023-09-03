@@ -1,41 +1,64 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify';
-import axios from 'axios';
-
+// import { toast } from 'react-toastify';
+import axios, { AxiosError } from "axios";
+import { useSignIn } from "react-auth-kit";
+// import { useNavigate } from "react-router-dom";
 
 export default function SignInForm({ toggle }) {
-  // const [name, setName] = useState('');
-
-  // useEffect(() => {
-  //   const storedName = localStorage.getItem('username');
-  //   setName(storedName);
-  // }, []);
+  const [error, setError] = useState("");
+  const signIn = useSignIn();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError("");
+
     try {
-      const response = await axios.post('https://mecadom.electroniqueclasse.com/api/login', { email, password });
-      localStorage.setItem('authData', JSON.stringify(response.data.token));
-      const successMessage = response.data.message; 
-      toast('Connexion réussie !');
-      console.log(successMessage); 
-      // window.location.replace('/profile');
-    } catch (error) {
-      if (error.response) {
-        toast(`Erreur lors de la connexion : ${error.response.data}`);
-      } else {
-        toast(`Erreur lors de la connexion : ${error.message}`);
-      }
-    } 
+      const response = await axios.post(
+        "https://mecadom.electroniqueclasse.com/api/login",
+        { email, password }
+      );
+
+
+      signIn({
+        token: response.data.token,
+        expiresIn: 3600,
+        tokenType: "Bearer",
+        authState: { email: email },
+      });
+      window.location.replace('/profile');
+    } catch (err) {
+      if (err && err instanceof AxiosError)
+        setError(err.response?.data.message);
+      else if (err && err instanceof Error) setError(err.message);
+
+      console.log("Error: ", err);
+    }
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await axios.post('https://mecadom.electroniqueclasse.com/api/login', { email, password });
+  //     localStorage.setItem('authData', JSON.stringify(response.data.token));
+  //     const successMessage = response.data.message; 
+  //     toast('Connexion réussie !');
+  //     console.log(successMessage); 
+  //     // window.location.replace('/profile');
+  //   } catch (error) {
+  //     if (error.response) {
+  //       toast(`Erreur lors de la connexion : ${error.response.data}`);
+  //     } else {
+  //       toast(`Erreur lors de la connexion : ${error.message}`);
+  //     }
+  //   } 
+  // };
   return (
     <form className='login-form' noValidate onSubmit={handleSubmit}>
       <h1 className='text-2xl font-bold'>Connexion</h1>
+      <p className=' text-red-600'>{error}</p>
       <div className="login-sign-up">
         <div className="login" >
 

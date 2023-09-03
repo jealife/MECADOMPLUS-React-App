@@ -76,14 +76,7 @@ export default function Admin() {
                         control the content visibility and styling.
                     </p>
                 </Tabs.Item>
-                <Tabs.Item
-                    disabled
-                    title="Disabled"
-                >
-                    <p>
-                        Disabled content
-                    </p>
-                </Tabs.Item>
+                
             </Tabs.Group>
         </main>
     );

@@ -6,14 +6,23 @@ import reportWebVitals from './reportWebVitals';
 import Navigation from './components/nav/Navigation';
 import { BrowserRouter } from "react-router-dom";
 import Footer from './components/footer/Footer';
+import { AuthProvider } from "react-auth-kit";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Navigation />
-    <App />
-    <Footer />
-  </BrowserRouter>
+  <AuthProvider
+    authType={"cookie"}
+    authName={"_auth"}
+    cookieDomain={window.location.hostname}
+    cookieSecure={false}
+  >
+    <BrowserRouter>
+      <Navigation />
+      <App />
+      <Footer />
+    </BrowserRouter>
+  </AuthProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
