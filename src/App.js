@@ -1,15 +1,19 @@
 
 import './App.css';
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import Admin from './pages/admin/Admin';
 import SignIn from './pages/login/SignIn';
 import { RequireAuth } from "react-auth-kit";
 import Profile from './pages/userProfile/UserProfile';
 
+
+
 function App() {
   return (
-    <Routes>
+    <frameElement>
+
+      <Routes>
       <Route path="/" element={<Home />}>
         <Route index element={<Home />} />
       </Route>
@@ -19,10 +23,12 @@ function App() {
         path="/profile"
         element={
           <RequireAuth loginPath="/connexion">
-            <Profile/>
+            <Profile />
           </RequireAuth>
         }></Route>
+      
     </Routes>
+    </frameElement>
   );
 }
 

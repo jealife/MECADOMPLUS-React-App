@@ -4,6 +4,7 @@ import SignInForm from '../../components/signInForm/SignInForm'
 import SignUpForm from '../../components/signUpForm/SignUpForm'
 
 
+
 export default function SignIn() {
     const [formLogin, setFormLogin] = useState(true)
     const toggleLoginForm = () => {
@@ -18,7 +19,7 @@ export default function SignIn() {
             </div>
 
             <div className="right-section"></div>
-
+           
         </main>
     )
 }

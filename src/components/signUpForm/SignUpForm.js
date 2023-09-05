@@ -21,9 +21,13 @@ function SignUpForm({ toggle }) {
       window.location.replace('/profile');
     } catch (error) {
       if (error.response) {
-        toast(`Erreur lors de la connexion : ${error.response.data}`);
+        toast.error(`Erreur lors de la connexion : ${error.response.data}`, {
+          draggablePercent: 60
+        });
       } else {
-        toast(`Erreur lors de la connexion : ${error.message}`);
+        toast.error(`Erreur lors de la connexion : ${error.message}`, {
+          draggablePercent: 60
+        });
       }
     }
   };

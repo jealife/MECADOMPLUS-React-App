@@ -1,39 +1,57 @@
 import { Link } from "react-router-dom";
 import Tabs from "./profileComponents/Tabs";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Profile = () => {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
 //   useEffect(() => {
-//     async function fetchData() {
-//       try {
-//         const config = {
-//           headers: {
-//             'Authorization': `Bearer ${this.token}`
-//           },
+       
+
+//     let jwttoken = sessionStorage.getItem('jwttoken');
+//     fetch("https://mecadom.electroniqueclasse.com/api/profile", {
+//         headers: {
+//             'Authorization': 'bearer ' + jwttoken
 //         }
-//         const response = await axios.get('https://mecadom.electroniqueclasse.com/api/login', config);
-//         setData(response.data);
-//       } catch (error) {
-//         setError(error);
-//       }
-//       finally { setLoading(false); }
-//     }
+//     }).then((res) => {
+//         return res.json();
+//     }).then((resp) => {
+//         // listupdate(resp);
+//     }).catch((err) => {
+//         console.log(err.messsage)
+//     });
 
-//     fetchData();
+// }, []);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const config = {
+          headers: {
+            'Authorization': `Bearer ${this.token}`
+          },
+        }
+        const response = await axios.get('https://mecadom.electroniqueclasse.com/api/profile', config);
+        setData(response.data);
+        
+      } catch (error) {
+        setError(error);
+      }
+      finally { setLoading(false); }
+    }
+
+    fetchData();
+
+  }, []);
 
   
-// if (loading) return <p>Loading…</p>;
-// if (error)
-//   return <div className=" min-h-screen flex items-center justify-center">
-//     <p>Error!</p>
-//   </div>;
+if (loading) return <p>Loading…</p>;
+if (error)
+  return <div className=" min-h-screen flex items-center justify-center">
+    <p>Error!</p>
+  </div>;
 return (
   <main>
 

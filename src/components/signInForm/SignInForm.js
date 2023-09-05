@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import axios, { AxiosError } from "axios";
 import { useSignIn } from "react-auth-kit";
 // import { useNavigate } from "react-router-dom";
 
 export default function SignInForm({ toggle }) {
+
   const [error, setError] = useState("");
   const signIn = useSignIn();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
@@ -29,12 +34,23 @@ export default function SignInForm({ toggle }) {
         tokenType: "Bearer",
         authState: { email: email },
       });
-      window.location.replace('/profile');
+      toast.success('connection successfully.', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        draggablePercent: 60
+        })
+      // window.location.replace('/profile');
     } catch (err) {
       if (err && err instanceof AxiosError)
         setError(err.response?.data.message);
       else if (err && err instanceof Error) setError(err.message);
-
+      toast.error('Please Enter valid username');
       console.log("Error: ", err);
     }
   };
@@ -57,6 +73,7 @@ export default function SignInForm({ toggle }) {
   // };
   return (
     <form className='login-form' noValidate onSubmit={handleSubmit}>
+
       <h1 className='text-2xl font-bold'>Connexion</h1>
       <p className=' text-red-600'>{error}</p>
       <div className="login-sign-up">
