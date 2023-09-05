@@ -16,7 +16,17 @@ function SignUpForm({ toggle }) {
 
       const response = await axios.post('https://mecadom.electroniqueclasse.com/api/register', { last_name,first_name, email, password });
       const successMessage = response.data.message; 
-      toast('Connexion réussie !');
+      toast.success('connexion réussie.', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        draggablePercent: 60
+      })
       console.log(successMessage); 
       window.location.replace('/profile');
     } catch (error) {
