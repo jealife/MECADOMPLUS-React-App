@@ -32,7 +32,7 @@ export default function SignInForm({ toggle }) {
         token: response.data.token,
         expiresIn: 3600,
         tokenType: "Bearer",
-        authState: { email: email },
+        authState: { email: email, password: password },
       });
       toast.success('connection successfully.', {
         position: "bottom-right",
@@ -44,13 +44,23 @@ export default function SignInForm({ toggle }) {
         progress: undefined,
         theme: "light",
         draggablePercent: 60
-        })
+      })
       // window.location.replace('/profile');
     } catch (err) {
       if (err && err instanceof AxiosError)
         setError(err.response?.data.message);
       else if (err && err instanceof Error) setError(err.message);
-      toast.error('Please Enter valid username');
+      toast.error('Please Enter valid email', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        draggablePercent: 60
+      });
       console.log("Error: ", err);
     }
   };
