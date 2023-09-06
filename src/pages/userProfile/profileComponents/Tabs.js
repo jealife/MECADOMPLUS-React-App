@@ -1,7 +1,7 @@
 import React from "react";
 import ProfilTab from "./tabsItems/ProfilTab";
 
-const Tabs = () => {
+const Tabs = ({ data }) => {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
@@ -26,9 +26,6 @@ const Tabs = () => {
                 href="#link1"
                 role="tablist"
               >
-                <box-icon name='user' color={(openTab === 1
-                  ? " #ffffff"
-                  : " #0E7490")} ></box-icon>
                 Profil
               </a>
             </li>
@@ -75,7 +72,13 @@ const Tabs = () => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <ProfilTab />
+
+                  {/* ====================================== */}
+                  {/* Profile fields */}
+
+                  <ProfilTab data={data} />
+
+                  {/* ================================================= */}
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p>

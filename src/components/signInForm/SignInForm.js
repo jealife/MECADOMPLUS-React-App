@@ -34,6 +34,8 @@ export default function SignInForm({ toggle }) {
         tokenType: "Bearer",
         authState: { email: email, password: password },
       });
+      
+      
       toast.success('connection successfully.', {
         position: "bottom-right",
         autoClose: 5000,
@@ -44,8 +46,10 @@ export default function SignInForm({ toggle }) {
         progress: undefined,
         theme: "light",
         draggablePercent: 60
-      })
-      // window.location.replace('/profile');
+      },
+      window.location.replace('/profile')
+      
+      )
     } catch (err) {
       if (err && err instanceof AxiosError)
         setError(err.response?.data.message);
@@ -60,7 +64,9 @@ export default function SignInForm({ toggle }) {
         progress: undefined,
         theme: "light",
         draggablePercent: 60
-      });
+      }
+      
+      );
       console.log("Error: ", err);
     }
   };

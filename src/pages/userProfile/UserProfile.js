@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Tabs from "./profileComponents/Tabs";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import {useAuthHeader} from 'react-auth-kit'
 
 const Profile = () => {
 //   useEffect(() => {
@@ -35,6 +37,7 @@ const Profile = () => {
         }
         const response = await axios.get('https://mecadom.electroniqueclasse.com/api/profile', config);
         setData(response.data);
+        console.log("hhhhh")
         
       } catch (error) {
         setError(error);
@@ -51,6 +54,18 @@ if (loading) return <p>Loading…</p>;
 if (error)
   return <div className=" min-h-screen flex items-center justify-center">
     <p>Error!</p>
+    {toast.error('Une erreur est survenue', {
+    position: "bottom-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    draggablePercent: 60
+  })}
+    
   </div>;
 return (
   <main>
@@ -142,7 +157,7 @@ return (
 
 
           <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94  rounded-md border border-stroke py-2.5 px-2 shadow-1 dark:border-strokedark ">
-            <Tabs />
+            <Tabs data={data} />
           </div>
 
 
