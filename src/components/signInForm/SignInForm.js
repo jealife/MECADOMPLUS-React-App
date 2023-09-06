@@ -25,8 +25,9 @@ export default function SignInForm({ toggle }) {
       const response = await axios.post(
         "https://mecadom.electroniqueclasse.com/api/login",
         { email, password }
+        
       );
-
+      localStorage.setItem('authData', JSON.stringify(response.data.token));
 
       signIn({
         token: response.data.token,
