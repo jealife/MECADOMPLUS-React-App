@@ -36,9 +36,9 @@ const Profile = () => {
           },
         }
         const response = await axios.get('https://mecadom.electroniqueclasse.com/api/profile', config);
-        setData(response.data);
-        console.log("hhhhh")
+        // setData(response.data);
         
+        console.log(response.data);
       } catch (error) {
         setError(error);
       }

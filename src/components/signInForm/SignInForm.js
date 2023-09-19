@@ -26,8 +26,9 @@ export default function SignInForm({ toggle }) {
         "https://mecadom.electroniqueclasse.com/api/login",
         { email, password }
         
-      );
-      localStorage.setItem('authData', JSON.stringify(response.data.token));
+      ).then((response)=> {
+        localStorage.setItem('authData', JSON.stringify(response.data.token));
+      });
 
       signIn({
         token: response.data.token,
